@@ -29,6 +29,7 @@ import Table from '@ckeditor/ckeditor5-table/src/table';
 import TableToolbar from '@ckeditor/ckeditor5-table/src/tabletoolbar';
 import Alignment from '@ckeditor/ckeditor5-alignment/src/alignment';
 import Font from '@ckeditor/ckeditor5-font/src/font';
+import Underline from '@ckeditor/ckeditor5-basic-styles/src/underline';
 
 export default class InlineEditor extends InlineEditorBase {}
 
@@ -56,7 +57,8 @@ InlineEditor.builtinPlugins = [
 	Table,
 	TableToolbar,
 	Alignment,
-	Font
+	Font,
+	Underline
 ];
 
 // Editor configuration.
@@ -70,6 +72,7 @@ InlineEditor.defaultConfig = {
 			'alignment',
 			'bold',
 			'italic',
+			'underline',
 			'link',
 			'bulletedList',
 			'numberedList',
