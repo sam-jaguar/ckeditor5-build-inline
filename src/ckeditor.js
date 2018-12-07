@@ -81,12 +81,15 @@ InlineEditor.defaultConfig = {
     options: [ 'left', 'right', 'center' ]
   },
 	image: {
-		toolbar: [
-			'imageStyle:full',
-			'imageStyle:side',
-			'|',
-			'imageTextAlternative'
-		]
+		toolbar: [ 'imageTextAlternative', '|', 'imageStyle:alignLeft', 'imageStyle:full', 'imageStyle:alignRight' ],
+    styles: [
+      // This option is equal to a situation where no style is applied.
+      'full',
+      // This represents an image aligned to the left.
+      'alignLeft',
+      // This represents an image aligned to the right.
+      'alignRight'
+    ]
 	},
 	table: {
 		contentToolbar: [
