@@ -110,6 +110,8 @@ InlineEditor.defaultConfig = {
       24,
       28,
       32,
+      36,
+      42,
       48,
       56,
       64,
