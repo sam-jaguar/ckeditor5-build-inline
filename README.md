@@ -1,3 +1,60 @@
+Jaguar Design's inline editor build:
+==============================================
+Hey, I made this fork for use in React+Rails projects that need a reasonable WYSIWYG editor.
+It has the default ckeditor-5 inline toolbar, plus font sizes, fontfaces, and text alignment. to use, add this module with yarn:
+`yarn add https://github.com/sam-jaguar/ckeditor5-build-inline`
+then use it in a react ckeditor thing:
+```javascript
+import React from 'react'
+import CKEditor from '@ckeditor/ckeditor5-react';
+import InlineEditor from '@ckeditor/ckeditor5-build-inline';
+
+function Editor(props){
+  return(
+    <CKEditor
+      editor={ InlineEditor }
+      data={ this.props.data }
+      // set this config for image uploading, described next
+      config={{
+        ckfinder: {
+          uploadUrl: '/photos',
+        },
+      }}
+      onInit={ editor => {
+          // You can store the "editor" and use when it is needed.
+          console.log( 'Editor is ready to use!', editor );
+      } }
+      onChange={ ( event, editor ) => {
+          const data = editor.getData();
+          console.log( { event, editor, data } );
+      } }
+      onBlur={ editor => {
+          console.log( 'Blur.', editor );
+      } }
+      onFocus={ editor => {
+          console.log( 'Focus.', editor );
+      } }
+    />
+  );
+}
+
+export default Editor;
+```
+
+## For image uploading
+
+for image uploading, you must set the ckfinder uploadUrl as shown above, then write a rails endpoint that accepts the file in a POST and returns JSON back. the structure for the response looks like this:
+```javascript
+{
+	uploaded: true
+	url: <uploaded URL>
+}
+```
+
+## thoughts
+theres still potential here, such as adding highlighting and font color change options. At some point, it would be in our interests to write our own image upload plugin, and potentially wrap this all up in a rails gem to generate correct routes out of the box.
+
+
 CKEditor 5 inline editor build
 ==============================================
 
