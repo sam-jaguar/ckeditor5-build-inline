@@ -28,6 +28,7 @@ import PasteFromOffice from '@ckeditor/ckeditor5-paste-from-office/src/pastefrom
 import Table from '@ckeditor/ckeditor5-table/src/table';
 import TableToolbar from '@ckeditor/ckeditor5-table/src/tabletoolbar';
 import Alignment from '@ckeditor/ckeditor5-alignment/src/alignment';
+import Font from '@ckeditor/ckeditor5-font/src/font';
 
 export default class InlineEditor extends InlineEditorBase {}
 
@@ -54,7 +55,8 @@ InlineEditor.builtinPlugins = [
 	PasteFromOffice,
 	Table,
 	TableToolbar,
-	Alignment
+	Alignment,
+	Font
 ];
 
 // Editor configuration.
@@ -63,6 +65,8 @@ InlineEditor.defaultConfig = {
 		items: [
 			'heading',
 			'|',
+			'fontSize',
+			'fontFamily',
 			'alignment',
 			'bold',
 			'italic',
@@ -91,6 +95,37 @@ InlineEditor.defaultConfig = {
       'alignRight'
     ]
 	},
+	fontSize: {
+    options: [
+      8,
+      10,
+      12,
+      'default',
+      16,
+      18,
+      21,
+      24,
+      28,
+      32,
+      48,
+      56,
+      64,
+      72
+    ]
+  },
+  fontFamily: {
+    options: [
+      'default',
+      'Arial',
+      'Courier New',
+      'Georgia',
+      'Lucida Sans Unicode',
+      'Tahoma',
+      'Times New Roman',
+      'Trebuchet MS',
+      'Verdana'
+    ]
+  },
 	table: {
 		contentToolbar: [
 			'tableColumn',
