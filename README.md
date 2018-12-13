@@ -10,6 +10,8 @@ import CKEditor from '@ckeditor/ckeditor5-react';
 import InlineEditor from '@ckeditor/ckeditor5-build-inline';
 
 function Editor(props){
+  // DO THIS or anything getting data from the editor on change will loop and freeze your browser.
+  var data = this.props.data
   return(
     <CKEditor
       editor={ InlineEditor }
@@ -25,7 +27,7 @@ function Editor(props){
           console.log( 'Editor is ready to use!', editor );
       } }
       onChange={ ( event, editor ) => {
-          const data = editor.getData();
+          data = editor.getData();
           console.log( { event, editor, data } );
       } }
       onBlur={ editor => {

@@ -63,6 +63,7 @@ InlineEditor.builtinPlugins = [
 
 // Editor configuration.
 InlineEditor.defaultConfig = {
+  removePlugins: [ 'ImageCaption' ],
 	toolbar: {
 		items: [
 			'heading',
